@@ -14,7 +14,8 @@ setup(
     author_email='tek@randhome.io',
     keywords='osint',
     install_requires=[
-        'pyshark==0.4.2.2'
+        'pyshark==0.4.2.2',
+        'IPy==0.83'
     ],
     license='MIT',
     packages=['pcapanalysis'],
