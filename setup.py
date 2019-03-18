@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='pcapanalysis',
-    version='0.1',
+    version='0.1.2',
     description='Python library extracting potential IOCs from a pcap file',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -15,7 +15,8 @@ setup(
     keywords='osint',
     install_requires=[
         'pyshark==0.4.2.2',
-        'IPy==0.83'
+        'IPy==0.83',
+        'pymisp==2.4.101'
     ],
     license='MIT',
     packages=['pcapanalysis'],
