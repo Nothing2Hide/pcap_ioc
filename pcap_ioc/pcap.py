@@ -34,7 +34,6 @@ class Pcap(object):
         Extract indicators at DNS level
         Adds them directly to the ioc list
         """
-        # FIXME: IP or domain here
         if p['DNS'].flags_response == '0':
             # QUERY
             self._indicators_add('domain', p['DNS'].qry_name)

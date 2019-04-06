@@ -33,9 +33,17 @@ def main():
     parser_a = subparsers.add_parser('ioc', help='Extract IOCs')
     parser_a.add_argument('FILE', help='File')
     parser_a.set_defaults(subcommand='ioc')
-    parser_b = subparsers.add_parser('misp', help='Extract IOCs and search in MISP')
+    parser_b = subparsers.add_parser(
+            'misp',
+            help='Extract IOCs and search in MISP'
+    )
     parser_b.add_argument('FILE',  help='File')
-    parser_b.add_argument('--verbose', '-v', action='store_true', help='Verbose')
+    parser_b.add_argument(
+            '--verbose',
+            '-v',
+            action='store_true',
+            help='Verbose'
+    )
     parser_b.set_defaults(subcommand='misp')
     parser_c = subparsers.add_parser('shell', help='Open a shell with pyshark')
     parser_c.add_argument('FILE',  help='File')
@@ -50,7 +58,12 @@ def main():
         elif args.subcommand == 'misp':
             # Parse MISP config
             conf = parse_config()
-            server = PyMISP(conf['default']['url'], conf['default']['key'], True, 'json')
+            server = PyMISP(
+                    conf['default']['url'],
+                    conf['default']['key'],
+                    True,
+                    'json'
+            )
             pcap = Pcap(args.FILE)
             print("Analyzing pcap")
             for i in pcap.indicators:
