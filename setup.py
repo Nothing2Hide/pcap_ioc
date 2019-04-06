@@ -9,7 +9,7 @@ setup(
     description='Python library extracting potential IOCs from a pcap file',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='https://github.com/Te-k/pcapanalysis',
+    url='https://github.com/Nothing2Hide/pcapanalysis',
     author='Tek',
     author_email='tek@randhome.io',
     keywords='threat-intel',
