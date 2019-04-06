@@ -21,7 +21,7 @@ setup(
     license='MIT',
     packages=['pcap_ioc'],
     entry_points= {
-        'console_scripts': [ 'pcapioc=pcap_ioc.cli:main' ]
+        'console_scripts': [ 'pcap_ioc=pcap_ioc.cli:main' ]
     },
     classifiers=[
         "Programming Language :: Python :: 3",

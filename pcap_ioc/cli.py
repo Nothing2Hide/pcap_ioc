@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 import os
+import sys
 import argparse
 import code
 import configparser
@@ -44,6 +45,12 @@ def main():
             action='store_true',
             help='Verbose'
     )
+    parser_b.add_argument(
+            '--server',
+            '-s',
+            help='Select MISP server',
+            default='default'
+    )
     parser_b.set_defaults(subcommand='misp')
     parser_c = subparsers.add_parser('shell', help='Open a shell with pyshark')
     parser_c.add_argument('FILE',  help='File')
@@ -58,9 +65,12 @@ def main():
         elif args.subcommand == 'misp':
             # Parse MISP config
             conf = parse_config()
+            if args.server not in conf:
+                print('Invalid MISP server')
+                sys.exit(1)
             server = PyMISP(
-                    conf['default']['url'],
-                    conf['default']['key'],
+                    conf[args.server]['url'],
+                    conf[args.server]['key'],
                     True,
                     'json'
             )
